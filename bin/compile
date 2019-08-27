@@ -74,7 +74,7 @@ mkdir -p "${BUILD_TARGET_DIR}"
 
 # This is the path that will be used at dyno runtime, and in which we build.
 APP_TARGET_DIR="/app/freetds"
-mkdir -p "${BUILD_TARGET_DIR}"
+mkdir -p "${APP_TARGET_DIR}"
 
 configure_app_env_vars() {
   topic "Creating .profile.d entry"
@@ -181,7 +181,7 @@ main() {
     build_and_install_freetds
 
     topic "Testing build"
-    "$APP_TARGET_DIR/bin/tsql" -C | indent
+    # "$APP_TARGET_DIR/bin/tsql" -C | indent
 
     cache_build_artifacts_for_future_deploys
   fi
